@@ -12,8 +12,14 @@ import XCTest
 /// - Parameter words: list of strings
 /// - Returns: true if every word in `words` is a palindrome, false otherwise
 func arePalindromes(_ words: [String]) -> Bool {
-    // your code here
-    return false
+    //The following skeleton code has been provided. A string in Swift is indexed using a String.index object.
+    //ex. using 'front' below, "hello"[front] -> "h"
+    for word in words {
+        let front = word.index(word.startIndex, offsetBy: 0)
+        let back = word.index(word.startIndex, offsetBy: word.count - 1)
+        
+    }
+    return true
 }
 //: ## Question 2: Optionals
 //: Someone stole a cookie from the GBC! At the crime scene, they found a blue book in the cookie jar with the SID `25346602` on it, no doubt it belonged to the criminal. The manager needs your help finding who it belongs to. Complete this function using the provided dictionary of SIDS called `studentIDNumbers` to find the culprit.
@@ -28,6 +34,7 @@ func arePalindromes(_ words: [String]) -> Bool {
 func findStudent(withStudentID sid: Int?, studentIDNumbers: [Int: String] = getSIDsDictionary()) -> String? {
     // studentIDNumbers has a default value (which is the SID dictionary), so you can use it directly like studentIDNumbers[50277282] -> "Tom"?.
     // Note: studentIDNumbers[KEY] always returns an optional since there may not be an entry for that KEY.
+    //HINT: Remember 'if let' syntax!
     
     // your code here
     return nil
@@ -39,6 +46,8 @@ findStudent(withStudentID: nil) // nil
 findStudent(withStudentID: 40979255) // nil
 //: ## Question 3: Protocols
 //: Make the class `Building` conform to the `Equatable` Protocol, and implement `getCapacity()`.
+
+//HINT: Refer to the swift documentation for protocols, especially the Equatable Protocol. We will go over this in class on Monday.
 class Building {
     
     var name: String
@@ -69,9 +78,13 @@ func percentageString(forNumber x: Double) -> String {
     return String(x*10) + "%"
 }
 
+//HINT: You can explicitly declare a closure type
+//ex. PercentageStringClosure: (Input Type) -> (Return Type)
 var percentageStringClosure = {
     // your code here
 }
+
+
 //: Tests below (Ignore)
 class PlaygroundTests: XCTestCase {
     func testArePalindromes() {
