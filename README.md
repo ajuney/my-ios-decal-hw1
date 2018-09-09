@@ -3,7 +3,7 @@
 Before beginning this homework, you'll need to install **Xcode 9**. You can download it by heading over to https://itunes.apple.com/us/app/xcode/id497799835. 
 
 ### due date
-Monday, February 5th at 6:30pm
+Wednesday, September 12th at 6:30pm
 
 ### submission 
 #### files to submit
@@ -22,4 +22,4 @@ Begin by downloading the homework starter code, which can be found in this repos
 
 To receive credit for this assignment, you will need to pass all of the tests found at the bottom of the playground, which you can run by uncommenting the line `// PlaygroundTests.defaultTestSuite.run()`.
 
-Feel free to ask for help on [Piazza](https://piazza.com/berkeley/spring2018/cs198001/home) if you get stuck on the assignment or have any issues submitting, and good luck!
+Feel free to ask for help on [Piazza](https://piazza.com/berkeley/fall2018/cs198001/home) if you get stuck on the assignment or have any issues submitting, and good luck!
