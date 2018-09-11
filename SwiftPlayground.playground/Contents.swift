@@ -15,9 +15,13 @@ func arePalindromes(_ words: [String]) -> Bool {
     //The following skeleton code has been provided. A string in Swift is indexed using a String.index object.
     //ex. using 'front' below, "hello"[front] -> "h"
     for word in words {
-        let front = word.index(word.startIndex, offsetBy: 0)
-        let back = word.index(word.startIndex, offsetBy: word.count - 1)
-        
+        for i in 0..<(word.count/2) {
+            let front = word.index(word.startIndex, offsetBy: i)
+            let back = word.index(word.startIndex, offsetBy: word.count - 1 - i)
+            if word[front] != word[back] {
+                return false;
+            }
+        }
     }
     return true
 }
@@ -36,7 +40,9 @@ func findStudent(withStudentID sid: Int?, studentIDNumbers: [Int: String] = getS
     // Note: studentIDNumbers[KEY] always returns an optional since there may not be an entry for that KEY.
     //HINT: Remember 'if let' syntax!
     
-    // your code here
+    if let studentId = sid, let name = studentIDNumbers[studentId] {
+        return name + " stole the cookie!"
+    }
     return nil
 }
 
@@ -48,7 +54,7 @@ findStudent(withStudentID: 40979255) // nil
 //: Make the class `Building` conform to the `Equatable` Protocol, and implement `getCapacity()`.
 
 //HINT: Refer to the swift documentation for protocols, especially the Equatable Protocol. We will go over this in class on Monday.
-class Building {
+class Building: Equatable {
     
     var name: String
     var capacity: Int?
@@ -58,9 +64,16 @@ class Building {
         self.capacity = capacity
     }
     
+    static func == (lhs: Building, rhs: Building) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     //: Returns the `capacity` of the building. If the `capacity` is `nil`, then return `0`.
     func getCapacity() -> Int {
-        return -1 // your code here
+        if let cap = capacity {
+            return cap
+        }
+        return 0
     }
 }
 
@@ -80,8 +93,8 @@ func percentageString(forNumber x: Double) -> String {
 
 //HINT: You can explicitly declare a closure type
 //ex. PercentageStringClosure: (Input Type) -> (Return Type)
-var percentageStringClosure = {
-    // your code here
+var percentageStringClosure: (Double) -> String = {
+    return String($0 * 10) + "%"
 }
 
 
@@ -117,5 +130,5 @@ class PlaygroundTests: XCTestCase {
     
 }
 //: ## Uncomment this line to run tests
-//PlaygroundTests.defaultTestSuite.run()
+PlaygroundTests.defaultTestSuite.run()
 
